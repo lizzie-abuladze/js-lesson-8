@@ -32,29 +32,29 @@ request.send();
 
 // fetch
 
-// let divApi = document.getElementById("wrapper");
+let fDiv = document.getElementById("container");
 
-// fetch("https://jsonplaceholder.typicode.com/users", {
-//   method: "GET",
-// })
-//   .then(function (data) {
-//     console.log(data);
-//     if (!data.ok) {
-//       throw "Server Error";
-//     }
-//     return data.json();
-//   })
-//   .then(function (responseJs) {
-//     console.log(responseJs);
-//     let ulElement = document.createElement("ul");
+fetch("https://jsonplaceholder.typicode.com/users", {
+  method: "GET",
+})
+  .then(function (data) {
+    console.log(data);
+    if (!data.ok) {
+      throw "Server Error";
+    }
+    return data.json();
+  })
+  .then(function (resJs) {
+    console.log(resJs);
+    let ulElement = document.createElement("ul");
 
-//     responseJs.forEach((element) => {
-//       let li = document.createElement("li");
-//       li.textContent = `${element.company.name}`;
-//       ulElement.appendChild(li);
-//     });
-//     divApi.appendChild(ulElement);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
+    resJs.forEach((element) => {
+      let li = document.createElement("li");
+      li.textContent = `${element.company.name}`;
+      ulElement.appendChild(li);
+    });
+    fDiv.appendChild(ulElement);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
